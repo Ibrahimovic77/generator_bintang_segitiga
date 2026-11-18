@@ -1,21 +1,3 @@
-Skip to content
-Using Gmail with screen readers
-Enable desktop notifications for Gmail.
-OK No thanks
-1 of 330
-(no subject)
-Inbox
-
-botak kilat
-Attachments
-8:59 PM (0 minutes ago)
-to me
-
-
-One attachment
-• Scanned by Gmail
-katalog.php
-100%
 <?php
 // 1. DATA PRODUK (Simulasi dari Database)
 $produk = [
@@ -104,42 +86,54 @@ $kategori_list = array_unique(array_column($produk, 'kategori'));
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manajemen Produk & Harga - POS Desktop</title>
+    <title>Manajemen Produk & Harga - POS Modern</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
     </style>
 </head>
 
-<body class="bg-gray-100 flex flex-col h-screen overflow-hidden">
+<body class="bg-slate-50 text-slate-800 flex flex-col h-screen overflow-hidden">
 
     <!-- TOP BAR -->
-    <header class="bg-stone-900 text-white h-14 px-6 flex items-center justify-between shadow-md z-10 shrink-0">
-        <div class="flex items-center gap-2">
-            <i class="fa-solid fa-shirt text-xl text-amber-500"></i>
+    <header class="bg-white border-b border-slate-200 h-16 px-6 flex items-center justify-between z-10 shrink-0">
+        <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white shadow-sm shadow-indigo-200">
+                <i class="fa-solid fa-bag-shopping text-base"></i>
+            </div>
             <div>
-                <h1 class="font-bold text-sm tracking-wide">Fashion Store</h1>
-                <p class="text-[10px] text-gray-400 -mt-1">Point of Sales (POS)</p>
+                <h1 class="font-bold text-base text-slate-900 tracking-tight leading-none">Fashion Store</h1>
+                <p class="text-[11px] text-slate-400 font-medium mt-1">Sistem Point of Sales</p>
             </div>
         </div>
-        <div class="flex items-center gap-6 text-sm">
-            <div class="flex items-center gap-2 text-gray-300">
-                <i class="fa-solid fa-circle-user text-lg text-gray-400"></i>
-                <span class="font-medium">Pemilik Toko</span>
-                <i class="fa-solid fa-chevron-down text-xs"></i>
+
+        <div class="flex items-center gap-5 text-sm">
+            <div class="hidden sm:flex items-center gap-2 bg-slate-100 text-slate-600 px-3 py-1.5 rounded-lg text-xs font-medium">
+                <i class="fa-regular fa-clock text-indigo-600"></i>
+                <span>30 Nov 2025 • 14:35</span>
             </div>
-            <div class="text-gray-400 text-xs border-l border-gray-700 pl-4 flex items-center gap-2">
-                <i class="fa-regular fa-calendar"></i>
-                <span>30 Nov 2025 14:35:10</span>
+
+            <div class="h-5 w-[1px] bg-slate-200"></div>
+
+            <div class="flex items-center gap-2.5 cursor-pointer group">
+                <div class="w-8 h-8 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-xs border border-indigo-100">
+                    PT
+                </div>
+                <div class="hidden md:block text-left">
+                    <p class="text-xs font-semibold text-slate-700 group-hover:text-indigo-600 transition">Pemilik Toko</p>
+                    <p class="text-[10px] text-slate-400">Administrator</p>
+                </div>
+                <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
             </div>
-            <a href="#"
-                class="text-red-400 hover:text-red-300 transition flex items-center gap-1.5 text-xs font-semibold">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                Keluar
+
+            <a href="#" title="Keluar"
+                class="w-8 h-8 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 transition flex items-center justify-center text-xs">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
             </a>
         </div>
     </header>
@@ -148,74 +142,86 @@ $kategori_list = array_unique(array_column($produk, 'kategori'));
     <div class="flex flex-1 overflow-hidden">
 
         <!-- SIDEBAR -->
-        <aside class="w-60 bg-stone-900 text-gray-300 flex flex-col justify-between shrink-0 border-t border-stone-800">
-            <nav class="p-4 space-y-1">
+        <aside class="w-64 bg-slate-900 text-slate-300 flex flex-col justify-between shrink-0">
+            <div class="p-4">
+                <p class="px-3 text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-2">Menu Utama</p>
+                <nav class="space-y-1">
+                    <a href="#"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm hover:bg-slate-800/70 hover:text-white transition">
+                        <i class="fa-solid fa-chart-pie w-5 text-slate-400"></i> Dashboard
+                    </a>
+                    <a href="#"
+                        class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm bg-indigo-600 text-white font-semibold shadow-md shadow-indigo-950/50 transition">
+                        <span class="flex items-center gap-3">
+                            <i class="fa-solid fa-boxes-stacked w-5"></i> Data Produk
+                        </span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                    </a>
+                    <a href="#"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm hover:bg-slate-800/70 hover:text-white transition">
+                        <i class="fa-solid fa-tags w-5 text-slate-400"></i> Kategori
+                    </a>
+                    <a href="#"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm hover:bg-slate-800/70 hover:text-white transition">
+                        <i class="fa-solid fa-receipt w-5 text-slate-400"></i> Transaksi
+                    </a>
+                    <a href="#"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm hover:bg-slate-800/70 hover:text-white transition">
+                        <i class="fa-solid fa-file-invoice-dollar w-5 text-slate-400"></i> Laporan
+                    </a>
+                </nav>
+
+                <p class="px-3 text-[10px] font-bold uppercase tracking-wider text-slate-500 mt-6 mb-2">Sistem</p>
+                <nav class="space-y-1">
+                    <a href="#"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm hover:bg-slate-800/70 hover:text-white transition">
+                        <i class="fa-solid fa-gear w-5 text-slate-400"></i> Pengaturan
+                    </a>
+                </nav>
+            </div>
+
+            <div class="p-4 m-3 rounded-xl bg-slate-800/60 border border-slate-700/50">
                 <a href="#"
-                    class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm hover:bg-stone-800 transition">
-                    <i class="fa-solid fa-chart-pie w-5 text-gray-400"></i> Dashboard
-                </a>
-                <a href="#"
-                    class="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm bg-stone-850 text-white font-medium border-l-4 border-amber-500 hover:bg-stone-800 transition">
-                    <span class="flex items-center gap-3">
-                        <i class="fa-solid fa-boxes-stacked w-5 text-amber-500"></i> Data Produk
-                    </span>
-                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-500"></i>
-                </a>
-                <a href="#"
-                    class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm hover:bg-stone-800 transition">
-                    <i class="fa-solid fa-tags w-5 text-gray-400"></i> Kategori
-                </a>
-                <a href="#"
-                    class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm hover:bg-stone-800 transition">
-                    <i class="fa-solid fa-receipt w-5 text-gray-400"></i> Transaksi
-                </a>
-                <a href="#"
-                    class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm hover:bg-stone-800 transition">
-                    <i class="fa-solid fa-file-invoice-dollar w-5 text-gray-400"></i> Laporan
-                </a>
-                <a href="#"
-                    class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm hover:bg-stone-800 transition">
-                    <i class="fa-solid fa-gear w-5 text-gray-400"></i> Pengaturan
-                </a>
-            </nav>
-            <div class="p-4 border-t border-stone-800">
-                <a href="#"
-                    class="flex items-center gap-3 px-3 py-2 rounded-lg text-xs text-gray-400 hover:text-white hover:bg-stone-850 transition">
-                    <i class="fa-solid fa-circle-info"></i> Tentang Aplikasi
+                    class="flex items-center gap-2.5 text-xs text-slate-300 hover:text-white transition">
+                    <i class="fa-solid fa-circle-info text-indigo-400 text-sm"></i>
+                    <div>
+                        <p class="font-semibold">Tentang Aplikasi</p>
+                        <p class="text-[10px] text-slate-400">Versi 2.4.0</p>
+                    </div>
                 </a>
             </div>
         </aside>
 
         <!-- KONTEN -->
-        <main class="flex-1 p-6 flex flex-col overflow-y-auto">
+        <main class="flex-1 p-6 lg:p-8 flex flex-col overflow-y-auto">
 
             <!-- TITLE & BUTTON -->
-            <div class="flex items-center justify-between mb-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                 <div>
-                    <h2 class="text-2xl font-bold text-gray-800">Manajemen Produk dan Harga</h2>
-                    <p class="text-xs text-gray-500 mt-1">Kelola daftar produk, stok, dan harga jual secara terpusat</p>
+                    <h2 class="text-2xl font-bold text-slate-900 tracking-tight">Manajemen Produk & Harga</h2>
+                    <p class="text-xs text-slate-500 mt-1">Atur katalog barang, pantau ketersediaan stok, dan perbarui harga jual.</p>
                 </div>
                 <button
-                    class="bg-stone-900 hover:bg-stone-850 text-white text-sm font-semibold px-4 py-2.5 rounded-lg shadow transition flex items-center gap-2">
-                    <i class="fa-solid fa-plus text-xs"></i> Tambah Produk Baru
+                    class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm shadow-indigo-200 transition flex items-center justify-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-plus text-xs"></i> Tambah Produk
                 </button>
             </div>
 
             <!-- SEARCH & FILTER BAR -->
-            <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm mb-6">
+            <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm mb-6">
                 <form action="" method="GET" class="flex flex-wrap items-center gap-3">
 
                     <!-- Search -->
                     <div class="flex-1 min-w-[260px] relative">
-                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-3.5 text-gray-400 text-sm"></i>
-                        <input type="text" name="q" placeholder="Cari produk... (Nama atau Kode)"
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
+                        <input type="text" name="q" placeholder="Cari nama produk atau kode SKU..."
                             value="<?= htmlspecialchars($search) ?>"
-                            class="w-full bg-gray-50 border border-gray-300 rounded-lg pl-9 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition">
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-700 placeholder-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition">
                     </div>
 
                     <!-- Filter Kategori -->
                     <select name="kategori"
-                        class="bg-gray-50 border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 transition min-w-[150px]">
+                        class="bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-700 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition min-w-[160px]">
                         <option value="Semua Kategori">Semua Kategori</option>
                         <?php foreach ($kategori_list as $kat): ?>
                             <option value="<?= $kat ?>" <?= $filter_kategori === $kat ? 'selected' : '' ?>><?= $kat ?></option>
@@ -224,20 +230,19 @@ $kategori_list = array_unique(array_column($produk, 'kategori'));
 
                     <!-- Filter Status -->
                     <select name="status"
-                        class="bg-gray-50 border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/20 transition min-w-[140px]">
-                        <option value="Semua Status" <?= $filter_status === 'Semua Status' ? 'selected' : '' ?>>Semua
-                            Status</option>
+                        class="bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm text-slate-700 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition min-w-[150px]">
+                        <option value="Semua Status" <?= $filter_status === 'Semua Status' ? 'selected' : '' ?>>Semua Status</option>
                         <option value="Aktif" <?= $filter_status === 'Aktif' ? 'selected' : '' ?>>Aktif</option>
                         <option value="Nonaktif" <?= $filter_status === 'Nonaktif' ? 'selected' : '' ?>>Nonaktif</option>
                     </select>
 
                     <!-- Buttons -->
                     <button type="submit"
-                        class="bg-amber-500 hover:bg-amber-600 text-stone-900 font-semibold text-sm px-4 py-2.5 rounded-lg transition shadow-sm">
-                        Cari
+                        class="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition shadow-sm">
+                        Terapkan
                     </button>
-                    <a href="manajemen_produk.php"
-                        class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold text-sm px-4 py-2.5 rounded-lg transition border border-gray-300 flex items-center gap-1.5">
+                    <a href="katalog.php"
+                        class="bg-white hover:bg-slate-50 text-slate-600 font-semibold text-sm px-4 py-2.5 rounded-xl transition border border-slate-200 flex items-center gap-1.5">
                         <i class="fa-solid fa-rotate-right text-xs"></i> Reset
                     </a>
 
@@ -245,67 +250,76 @@ $kategori_list = array_unique(array_column($produk, 'kategori'));
             </div>
 
             <!-- DAFTAR TABEL PRODUK -->
-            <div
-                class="bg-white rounded-xl border border-gray-200 shadow-sm flex-1 flex flex-col justify-between overflow-hidden">
+            <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm flex-1 flex flex-col justify-between overflow-hidden">
                 <div class="overflow-x-auto">
                     <table class="w-full text-left border-collapse">
                         <thead>
-                            <tr
-                                class="bg-gray-50 text-gray-600 text-[11px] font-bold uppercase tracking-wider border-b border-gray-200">
-                                <th class="py-3 px-4 w-12 text-center">No</th>
-                                <th class="py-3 px-4">Kode Produk</th>
-                                <th class="py-3 px-4">Nama Produk</th>
-                                <th class="py-3 px-4">Kategori</th>
-                                <th class="py-3 px-4 text-right">Harga Modal</th>
-                                <th class="py-3 px-4 text-right">Harga Jual</th>
-                                <th class="py-3 px-4 text-center">Stok Tersedia</th>
-                                <th class="py-3 px-4 text-center">Status Aktif</th>
-                                <th class="py-3 px-4 text-center w-40">Aksi</th>
+                            <tr class="bg-slate-50/80 text-slate-500 text-[11px] font-bold uppercase tracking-wider border-b border-slate-200">
+                                <th class="py-3.5 px-4 w-12 text-center">No</th>
+                                <th class="py-3.5 px-4">Kode</th>
+                                <th class="py-3.5 px-4">Nama Produk</th>
+                                <th class="py-3.5 px-4">Kategori</th>
+                                <th class="py-3.5 px-4 text-right">Harga Modal</th>
+                                <th class="py-3.5 px-4 text-right">Harga Jual</th>
+                                <th class="py-3.5 px-4 text-center">Stok</th>
+                                <th class="py-3.5 px-4 text-center">Status</th>
+                                <th class="py-3.5 px-4 text-center w-32">Aksi</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-150 text-sm text-gray-700">
+                        <tbody class="divide-y divide-slate-100 text-sm text-slate-700">
                             <?php if (count($produk_tampil) > 0): ?>
                                 <?php $no = 1;
                                 foreach ($produk_tampil as $p): ?>
-                                    <tr class="hover:bg-gray-50 transition-colors">
-                                        <td class="py-3.5 px-4 text-center font-medium text-gray-400"><?= $no++ ?></td>
-                                        <td class="py-3.5 px-4 font-mono text-xs font-semibold text-gray-600"><?= $p['kode'] ?>
-                                        </td>
-                                        <td class="py-3.5 px-4 font-semibold text-gray-900"><?= $p['nama'] ?></td>
+                                    <tr class="hover:bg-indigo-50/30 transition-colors group">
+                                        <td class="py-3.5 px-4 text-center font-medium text-slate-400"><?= $no++ ?></td>
                                         <td class="py-3.5 px-4">
-                                            <span
-                                                class="bg-stone-100 text-stone-700 text-xs px-2 py-0.5 rounded-md font-medium border border-stone-200"><?= $p['kategori'] ?></span>
+                                            <span class="font-mono text-xs font-semibold text-indigo-600 bg-indigo-50 px-2 py-1 rounded-md">
+                                                <?= $p['kode'] ?>
+                                            </span>
                                         </td>
-                                        <td class="py-3.5 px-4 text-right font-medium text-gray-600">
-                                            Rp<?= number_format($p['harga_modal'], 0, ',', '.') ?></td>
-                                        <td class="py-3.5 px-4 text-right font-bold text-gray-900">
-                                            Rp<?= number_format($p['harga_jual'], 0, ',', '.') ?></td>
-                                        <td
-                                            class="py-3.5 px-4 text-center font-semibold <?= $p['stok'] <= 15 ? 'text-amber-600' : 'text-gray-900' ?>">
-                                            <?= $p['stok'] ?>
+                                        <td class="py-3.5 px-4 font-semibold text-slate-800"><?= $p['nama'] ?></td>
+                                        <td class="py-3.5 px-4">
+                                            <span class="bg-slate-100 text-slate-600 text-xs px-2.5 py-1 rounded-lg font-medium">
+                                                <?= $p['kategori'] ?>
+                                            </span>
+                                        </td>
+                                        <td class="py-3.5 px-4 text-right font-medium text-slate-500">
+                                            Rp<?= number_format($p['harga_modal'], 0, ',', '.') ?>
+                                        </td>
+                                        <td class="py-3.5 px-4 text-right font-bold text-slate-900">
+                                            Rp<?= number_format($p['harga_jual'], 0, ',', '.') ?>
+                                        </td>
+                                        <td class="py-3.5 px-4 text-center">
+                                            <?php if ($p['stok'] <= 15): ?>
+                                                <span class="inline-flex items-center gap-1 text-xs font-bold text-amber-700 bg-amber-50 border border-amber-200/60 px-2.5 py-0.5 rounded-md">
+                                                    <?= $p['stok'] ?> pcs
+                                                </span>
+                                            <?php else: ?>
+                                                <span class="text-xs font-semibold text-slate-700">
+                                                    <?= $p['stok'] ?> pcs
+                                                </span>
+                                            <?php endif; ?>
                                         </td>
                                         <td class="py-3.5 px-4 text-center">
                                             <?php if ($p['status'] === 'Aktif'): ?>
-                                                <span
-                                                    class="inline-flex items-center gap-1.5 bg-green-100 text-green-700 text-xs px-2.5 py-1 rounded-full font-bold">
-                                                    <span class="w-1.5 h-1.5 rounded-full bg-green-600"></span> Aktif
+                                                <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200/60 text-xs px-2.5 py-1 rounded-full font-semibold">
+                                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Aktif
                                                 </span>
                                             <?php else: ?>
-                                                <span
-                                                    class="inline-flex items-center gap-1.5 bg-gray-100 text-gray-500 text-xs px-2.5 py-1 rounded-full font-bold">
-                                                    <span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span> Nonaktif
+                                                <span class="inline-flex items-center gap-1.5 bg-slate-100 text-slate-500 border border-slate-200/60 text-xs px-2.5 py-1 rounded-full font-semibold">
+                                                    <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span> Nonaktif
                                                 </span>
                                             <?php endif; ?>
                                         </td>
                                         <td class="py-3.5 px-4">
-                                            <div class="flex items-center justify-center gap-1.5">
-                                                <button
-                                                    class="border border-gray-300 hover:border-amber-500 hover:text-amber-500 text-gray-600 px-3 py-1.5 rounded text-xs font-medium transition flex items-center gap-1">
-                                                    <i class="fa-regular fa-pen-to-square"></i> Ubah
+                                            <div class="flex items-center justify-center gap-2">
+                                                <button title="Ubah Produk"
+                                                    class="w-8 h-8 rounded-lg border border-slate-200 bg-white hover:border-indigo-500 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 transition flex items-center justify-center text-xs">
+                                                    <i class="fa-regular fa-pen-to-square"></i>
                                                 </button>
-                                                <button
-                                                    class="border border-gray-300 hover:border-red-500 hover:text-red-500 text-gray-600 px-3 py-1.5 rounded text-xs font-medium transition flex items-center gap-1">
-                                                    <i class="fa-regular fa-trash-can"></i> Hapus
+                                                <button title="Hapus Produk"
+                                                    class="w-8 h-8 rounded-lg border border-slate-200 bg-white hover:border-rose-500 hover:bg-rose-50 hover:text-rose-600 text-slate-500 transition flex items-center justify-center text-xs">
+                                                    <i class="fa-regular fa-trash-can"></i>
                                                 </button>
                                             </div>
                                         </td>
@@ -313,9 +327,12 @@ $kategori_list = array_unique(array_column($produk, 'kategori'));
                                 <?php endforeach; ?>
                             <?php else: ?>
                                 <tr>
-                                    <td colspan="9" class="text-center py-12 text-gray-400">
-                                        <i class="fa-solid fa-box-open text-3xl mb-2 block"></i>
-                                        Data produk tidak ditemukan.
+                                    <td colspan="9" class="text-center py-14 text-slate-400">
+                                        <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center mx-auto mb-3 text-slate-400">
+                                            <i class="fa-solid fa-box-open text-xl"></i>
+                                        </div>
+                                        <p class="font-medium text-slate-600 text-sm">Data produk tidak ditemukan</p>
+                                        <p class="text-xs mt-0.5">Coba ubah kata kunci pencarian atau reset filter.</p>
                                     </td>
                                 </tr>
                             <?php endif; ?>
@@ -324,19 +341,18 @@ $kategori_list = array_unique(array_column($produk, 'kategori'));
                 </div>
 
                 <!-- FOOTER / PAGINATION -->
-                <div
-                    class="bg-gray-50 border-t border-gray-200 px-6 py-4 flex items-center justify-between text-xs text-gray-500 shrink-0">
+                <div class="bg-slate-50/70 border-t border-slate-200/80 px-6 py-3.5 flex items-center justify-between text-xs text-slate-500 shrink-0">
                     <div>
-                        Menampilkan <span class="font-bold text-gray-700">1 - <?= count($produk_tampil) ?></span> dari
-                        <span class="font-bold text-gray-700"><?= count($produk_tampil) ?></span> data
+                        Menampilkan <span class="font-bold text-slate-800">1 - <?= count($produk_tampil) ?></span> dari
+                        <span class="font-bold text-slate-800"><?= count($produk_tampil) ?></span> produk
                     </div>
-                    <div class="flex items-center gap-1">
-                        <button class="p-1 px-2.5 border border-gray-300 bg-white rounded hover:bg-gray-50 transition"
+                    <div class="flex items-center gap-1.5">
+                        <button class="w-7 h-7 flex items-center justify-center border border-slate-200 bg-white rounded-lg text-slate-400 cursor-not-allowed"
                             disabled>
                             <i class="fa-solid fa-chevron-left text-[10px]"></i>
                         </button>
-                        <button class="bg-stone-900 text-white font-bold p-1 px-3 rounded shadow-sm">1</button>
-                        <button class="p-1 px-2.5 border border-gray-300 bg-white rounded hover:bg-gray-50 transition"
+                        <button class="w-7 h-7 flex items-center justify-center bg-indigo-600 text-white font-bold rounded-lg shadow-sm">1</button>
+                        <button class="w-7 h-7 flex items-center justify-center border border-slate-200 bg-white rounded-lg text-slate-400 cursor-not-allowed"
                             disabled>
                             <i class="fa-solid fa-chevron-right text-[10px]"></i>
                         </button>
